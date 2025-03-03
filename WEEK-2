@@ -1,1 +1,84 @@
+COSC121 – Week 2: Strings, Objects, Methods, and I/O
+What is a String?
+In Python, a string is a sequence of characters. Characters can be letters, digits, punctuation marks, spaces, or symbols. Strings are essential in almost every 
+program, from user prompts to file processing, web scraping, or data cleaning. Python handles strings as objects, meaning strings come with built-in functionality you 
+can use to manipulate or inspect them.
+
+String Literals – Defining Text Directly in Code
+A literal is a hardcoded value that appears directly in the source code. For numbers, literals might be 42 or 3.14. For strings, literals are text enclosed in quotes. 
+Python supports:
+Single quotes: 'hello'
+Double quotes: "hello"
+Triple quotes: '''hello''' or """hello"""
+
+You can use whichever makes your code clearer. For instance, if your string contains double quotes (like "Hello"), it’s easier to enclose it in single quotes:
+quote = 'He said, "Hello"'
+
+Triple quotes are ideal for multi-line strings:
+poem = """Roses are red,
+Violets are blue,
+Coding is fun,
+And Python is too!"""
+
+Printing Strings – Displaying Output
+The print() function sends output to the screen. It’s the primary way programs communicate with users. It can print single items or multiple items separated by commas, 
+automatically inserting spaces between them:
+name = "Alice"
+print("Hello,", name, "welcome to COSC121!")
+
+Special Characters – Escape Sequences
+Strings sometimes need special formatting, such as newlines (\n), tabs (\t), or even literal quotes inside the string. These are handled with escape sequences — 
+a backslash followed by a character:
+\n = newline
+\t = tab
+\\ = backslash
+\" = double quote
+\' = single quote
+
+String Operations – Combining and Repeating Strings
+Python lets you combine strings using the + operator (concatenation):
+first = "Hello"
+second = "World"
+greeting = first + " " + second
+
+You can also repeat strings using the * operator:
+line = "=" * 20
+print(line)
+
+Getting Input from the User
+The input() function reads text from the keyboard. Whatever the user types is returned as a string, even if they type numbers:
+name = input("What is your name? ")
+
+If you need numbers, you must convert them:
+age = int(input("Enter your age: "))
+
+Strings are Objects – Methods and Attributes
+In Python, every string is an object. An object is a bundle of data and functions (called methods) that act on that data. 
+You can call these methods directly on the string itself:
+s = "hello world"
+print(s.upper())
+This prints HELLO WORLD.
+
+Essential String Methods
+Some extremely useful string methods you’ll use constantly:
+
+capitalize() – Capitalizes the first letter.
+lower() – Converts to lowercase.
+upper() – Converts to uppercase.
+strip() – Removes leading/trailing whitespace.
+find() – Finds a substring’s position.
+split() – Splits into a list of words.
+Example:
+name = "  alice  "
+print(name.strip().capitalize())
+
+String Formatting – Building Clean Output
+When building output like:
+name = "Alice"
+age = 20
+print("Name: " + name + ", Age: " + str(age))
+
+This is awkward. Instead, use:
+print("Name: {}, Age: {}".format(name, age))
+This is cleaner and works with all types (strings, numbers, etc.).
 
