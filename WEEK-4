@@ -1,0 +1,154 @@
+Topic 04: Lists and Iteration
+Introduction to Lists in Python
+A list is one of the most versatile and widely used data structures in Python. It is an ordered collection of elements, allowing us to store multiple values in a single variable. Lists are extremely useful because they provide dynamic storage, meaning they can grow and shrink as needed.
+
+Lists in Python are different from arrays in other programming languages because they can store elements of different data types, whereas arrays in languages like C or Java must contain only one type of element.
+
+For example, we can create lists containing numbers, strings, or even other lists!
+# List containing integers
+numbers = [1, 2, 3, 4, 5]
+
+# List containing strings
+fruits = ["apple", "banana", "cherry"]
+
+# List containing mixed data types
+info = ["Alice", 25, 5.7, True]
+
+# Empty list
+empty_list = []
+
+Python lists use zero-based indexing, meaning the first element is at index 0, the second at 1, and so on. Negative indices count from the end of the list, with -1 representing the last element.
+
+Accessing Elements in a List
+We can access elements in a list using indexing.
+
+fruits = ["apple", "banana", "cherry"]
+
+# Accessing elements using positive indices
+print(fruits[0])  # Output: apple
+print(fruits[1])  # Output: banana
+
+# Accessing elements using negative indices
+print(fruits[-1])  # Output: cherry
+print(fruits[-2])  # Output: banana
+
+Attempting to access an index that does not exist will cause an IndexError.
+
+print(fruits[5])  # IndexError: list index out of range
+
+Modifying Lists (Mutability of Lists)
+Unlike strings, which are immutable, lists are mutable, meaning their elements can be changed after creation.
+fruits = ["apple", "banana", "cherry"]
+fruits[1] = "blueberry"  # Changing the second element
+print(fruits)  # Output: ['apple', 'blueberry', 'cherry']
+Since lists are mutable, we can also add, remove, and modify elements dynamically.
+
+List Operations
+Python provides various built-in operations to manipulate lists.
+
+1. Adding Elements to a List
+Appending Elements (.append())
+numbers = [1, 2, 3]
+numbers.append(4)  # Adds 4 at the end
+print(numbers)  # Output: [1, 2, 3, 4]
+
+Inserting Elements at a Specific Index (.insert())
+numbers.insert(1, 100)  # Insert 100 at index 1
+print(numbers)  # Output: [1, 100, 2, 3, 4]
+
+Removing Elements from a List
+Removing by Value (.remove())
+numbers.remove(100)  # Removes first occurrence of 100
+print(numbers)  # Output: [1, 2, 3, 4]
+
+If the element is not found, it raises a ValueError.
+
+Removing by Index (.pop())
+last_element = numbers.pop()  # Removes and returns last element
+print(numbers)  # Output: [1, 2, 3]
+print(last_element)  # Output: 4
+
+.pop(index) can remove elements from specific positions.
+
+Clearing the List (.clear())
+
+numbers.clear()  # Removes all elements
+print(numbers)  # Output: []
+
+List Slicing (Extracting Sub-lists)
+List slicing allows us to extract portions of a list. The syntax is:
+list[start:end]  # Extracts elements from start index to end-1 index
+
+numbers = [10, 20, 30, 40, 50, 60]
+print(numbers[1:4])  # Output: [20, 30, 40]
+print(numbers[:3])   # Output: [10, 20, 30] (First 3 elements)
+print(numbers[2:])   # Output: [30, 40, 50, 60] (From index 2 to end)
+print(numbers[-3:])  # Output: [40, 50, 60] (Last 3 elements)
+Slicing does not modify the original list but creates a new list.
+
+Looping Over Lists (Iteration)
+One of the most common operations is iterating over a list to process its elements.
+
+Using a for Loop
+fruits = ["apple", "banana", "cherry"]
+for fruit in fruits:
+    print(fruit)
+
+Output:
+
+apple
+banana
+cherry
+
+Using for Loop with range()
+If we need index-based access, we use range(len(list)):
+
+for i in range(len(fruits)):
+    print(f"Index {i}: {fruits[i]}")
+
+Output:
+Index 0: apple
+Index 1: banana
+Index 2: cherry
+
+Using while Loop
+We can also iterate using a while loop, especially when modifying lists dynamically.
+
+i = 0
+while i < len(fruits):
+    print(fruits[i])
+    i += 1
+
+List Comprehensions (Efficient List Operations)
+List comprehensions provide a concise way to create new lists using loops in a single line.
+
+Example 1: Squaring Numbers
+numbers = [1, 2, 3, 4, 5]
+squares = [x**2 for x in numbers]
+print(squares)  # Output: [1, 4, 9, 16, 25]
+
+Example 2: Filtering Even Numbers
+numbers = [1, 2, 3, 4, 5, 6]
+evens = [x for x in numbers if x % 2 == 0]
+print(evens)  # Output: [2, 4, 6]
+
+This is equivalent to:
+evens = []
+for x in numbers:
+    if x % 2 == 0:
+        evens.append(x)
+
+Aliasing and Copying Lists
+One common mistake is aliasing a list, which creates a reference instead of a copy.
+a = [1, 2, 3]
+b = a  # Both 'a' and 'b' point to the same list
+b.append(4)
+print(a)  # Output: [1, 2, 3, 4] (unexpected change!)
+
+To avoid this, create a copy using slicing or .copy():
+
+a = [1, 2, 3]
+b = a[:]  # Creates a new list
+b.append(4)
+print(a)  # Output: [1, 2, 3] (unchanged)
+
