@@ -1,1 +1,136 @@
+Topic 03: Conditionals (Decision Making in Python)
+Introduction to Conditionals
+Decision-making is one of the most fundamental aspects of programming. Without the ability to make decisions, a program would simply execute every instruction in a 
+linear manner, without adapting to different inputs or scenarios. Conditional statements allow us to control the flow of execution by specifying which block of code should run based on specific conditions.
+
+In Python, conditionals are implemented using if, elif (else-if), and else statements. These allow a program to check whether a condition is True or False and respond accordingly. Understanding conditionals is crucial for writing interactive and intelligent programs, as they enable logic-based execution, user validation, and data processing.
+
+Boolean Type (bool) and Logical Operators
+At the heart of conditional statements are Boolean values (True and False). A Boolean expression is an expression that evaluates to one of these two values. These expressions often involve comparison operators such as <, >, ==, !=, <=, >=.
+
+For example, consider the expression:
+
+x = 10
+y = 20
+print(x < y)  # Output: True
+print(x == y) # Output: False
+
+Here, x < y is True because 10 is indeed smaller than 20, while x == y is False because 10 is not equal to 20.
+
+Python also provides logical operators (and, or, not) that allow us to combine multiple Boolean expressions into more complex conditions.
+
+and: Returns True if both conditions are true.
+or: Returns True if at least one condition is true.
+not: Inverts the Boolean value (True becomes False and vice versa).
+
+x = 15
+y = 10
+print(x > 10 and y < 20)  # True (both conditions are true)
+print(x > 20 or y < 20)   # True (at least one condition is true)
+print(not(x > 20))        # True (inverts False)
+
+The if Statement (Basic Conditionals)
+An if statement is the simplest form of conditional logic. It checks whether a condition is True and executes a block of code only if it is.
+
+if condition:
+    # Code to execute if condition is True
+
+The condition inside if is evaluated, and if it is True, the indented block of code runs. If it is False, the program skips that block and continues executing the next lines of code.
+
+Example: Checking if a Number is Positive
+number = int(input("Enter a number: "))
+if number > 0:
+    print("This is a positive number.")
+
+If the user enters 5, the output will be "This is a positive number." But if they enter -3, nothing is printed because the condition is False.
+
+The if-else Statement (Adding an Alternative Path)
+Often, we need to specify what should happen if the condition is not met. This is where else comes in.
+
+Example: Checking if a Number is Positive or Negative
+number = int(input("Enter a number: "))
+if number > 0:
+    print("This is a positive number.")
+else:
+    print("This is a negative number or zero.")
+
+Using elif for Multiple Conditions
+Sometimes, we need to check more than two conditions. This is where elif (short for "else if") is useful. It allows us to chain multiple conditions together.
+
+Example: Classifying a Number
+num = int(input("Enter a number: "))
+
+if num > 0:
+    print("Positive number")
+elif num == 0:
+    print("Zero")
+else:
+    print("Negative number")
+
+If the user enters 5, it prints "Positive number".
+If they enter 0, it prints "Zero".
+If they enter -3, it prints "Negative number".
+
+Flowchart Representation of if-elif-else
+Start
+   |
+  Input -> num
+   |
+   ├── [num > 0] ---> "Positive number"
+   |
+   ├── [num == 0] ---> "Zero"
+   |
+   ├── [else] ---> "Negative number"
+   |
+  End
+
+Nested if Statements (Decision Trees)
+Sometimes, decisions depend on multiple conditions that need to be checked in sequence. Nested if statements allow us to have conditionals inside other conditionals.
+
+Example: Checking if a Number is Positive and Even/Odd
+num = int(input("Enter a number: "))
+
+if num > 0:
+    if num % 2 == 0:
+        print("Positive even number")
+    else:
+        print("Positive odd number")
+else:
+    print("Negative number or zero")
+
+If num = 4, it prints "Positive even number".
+If num = 5, it prints "Positive odd number".
+If num = -2, it prints "Negative number or zero".
+
+Boolean Functions (Returning True or False)
+A Boolean function returns a True or False value based on logic. It makes the code more reusable and readable.
+
+Example: Checking if a Number is Even
+def is_even(number):
+    return number % 2 == 0
+
+print(is_even(4))  # True
+print(is_even(7))  # False
+
+Here, instead of writing if number % 2 == 0 multiple times, we can simply call is_even(number), making the code modular and efficient.
+
+Avoiding Floating-Point Comparison Errors
+Floating-point numbers should not be compared directly for equality due to precision errors.
+
+Example of a Floating-Point Comparison Issue
+a = 3.0 * 0.1 / 3.0
+if a == 0.1:
+    print("Equal")
+else:
+    print("Not Equal")  # Output: Not Equal (because of precision issues)
+
+Correct Approach: Use a Tolerance Value
+if abs(a - 0.1) < 0.0001:
+    print("Equal")
+
+This method accounts for small precision differences, ensuring accurate comparisons.
+
+
+
+
 
